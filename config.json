@@ -22,6 +22,7 @@
         "led_rainbow": 0,
         "led_color": 0,
         "show_image": 1,
+        "frame_interval_ms": 100,
         "image1": {
             "frames": 36
         },

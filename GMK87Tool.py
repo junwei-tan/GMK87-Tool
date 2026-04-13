@@ -162,11 +162,11 @@ def updateConfigFrame(device, config):
     data[0x30] = utils.to_hex_num(now.month)
     data[0x31] = utils.to_hex_num(int(math.fmod(now.year, 100)))
 
-    # frameDuration = 1000 # in ms
-    # frameDurationLsb = frameDuration & 0xff
-    # frameDurationMsb = (frameDuration >> 8) & 0xff 
-    #data[0x33] = frameDurationLsb
-    #data[0x34] = frameDurationMsb
+    # 0x33-0x34 = animation frame interval in ms (little-endian)
+    # e.g. 100 = 10fps, 200 = 5fps, 1000 = 1fps
+    frameDuration = config.get('config').get('frame_interval_ms', 100)
+    data[0x33] = frameDuration & 0xff
+    data[0x34] = (frameDuration >> 8) & 0xff
 
     # 0x36 = Frame count in image 2
     data[0x36] = config.get('config').get('image2').get('frames', 0x00)
