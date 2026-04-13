@@ -21,9 +21,9 @@
         "led_saturation": 0,
         "led_rainbow": 0,
         "led_color": 0,
-        "show_image": 0,
+        "show_image": 1,
         "image1": {
-            "frames": 45
+            "frames": 36
         },
         "image2": {
             "frames": 0
